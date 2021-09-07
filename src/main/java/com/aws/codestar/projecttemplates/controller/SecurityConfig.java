@@ -13,7 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
-//                .and().oauth2Login() // <-- THIS WAS CHANGED
+                .and().oauth2Login() // <-- THIS WAS CHANGED
         ;
     }
 }
