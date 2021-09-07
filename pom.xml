@@ -25,8 +25,8 @@
         </dependency>
         <dependency>
             <groupId>com.okta.spring</groupId>
-            <artifactId>okta-spring-sdk</artifactId>
-            <version>1.4.0</version>
+            <artifactId>okta-spring-boot-starter</artifactId>
+            <version>2.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
