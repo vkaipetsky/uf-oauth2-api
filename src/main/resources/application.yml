@@ -1,0 +1,4 @@
+okta:
+  client:
+    orgUrl: ${OKTA_ORG_URL}
+    token: ${OKTA_TOKEN}
