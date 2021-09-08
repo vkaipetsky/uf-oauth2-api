@@ -1,5 +1,7 @@
 package com.aws.codestar.projecttemplates.controller;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,19 +11,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class WebController {
 
-    @CrossOrigin(origins = "*")
+//    @CrossOrigin // TODO: This doesn't seem to do anything - need to rely on manual CORS header injection below
     @RequestMapping("/")
     @ResponseBody
-    public String home() {
-        return "Welcome home!";
+    public ResponseEntity<String> home() {
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        return ResponseEntity.ok()
+                .headers(responseHeaders)
+                .body("{\"Output\":\"Welcome home!\"}");
     }
 
-    @CrossOrigin(origins = "*")
+//    @CrossOrigin // TODO: This doesn't seem to do anything - need to rely on manual CORS header injection below
     @PreAuthorize("hasAuthority('admins')")
     @RequestMapping("/restricted")
     @ResponseBody
-    public String restricted() {
-        return "You found the secret lair!";
+    public ResponseEntity<String> restricted() {
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        return ResponseEntity.ok()
+                .headers(responseHeaders)
+                .body("{\"Output\":\"You found the secret lair!\"}");
     }
 
 }
