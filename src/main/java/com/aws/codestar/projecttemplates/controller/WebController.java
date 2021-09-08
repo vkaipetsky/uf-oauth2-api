@@ -18,7 +18,7 @@ public class WebController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         return ResponseEntity.ok()
-                .headers(responseHeaders)
+//                .headers(responseHeaders)
                 .body("{\"Output\":\"Welcome home!\"}");
     }
 
@@ -30,7 +30,7 @@ public class WebController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         return ResponseEntity.ok()
-                .headers(responseHeaders)
+//                .headers(responseHeaders)
                 .body("{\"Output\":\"You found the secret lair!\"}");
     }
 
